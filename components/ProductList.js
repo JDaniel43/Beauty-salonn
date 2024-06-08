@@ -1,4 +1,4 @@
-import { data } from "@/pages/data";
+import { data } from "@/public/data";
 import Button from "./Button";
 export const ProductList = ({
 	allProducts,
