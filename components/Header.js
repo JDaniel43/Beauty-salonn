@@ -30,16 +30,59 @@ export const Header = ({
 
 	return (
 		<header className='flex bg-rose-300 shadow-md py- px-4 h-20 sm:px-10 font-[sans-serif]  mb-2 fixed top-0 left-0 right-0 z-20'>
-			<div class='flex flex-wrap items-center justify-between gap-5 w-full'>
+			<div className='flex flex-wrap items-center justify-between gap-5 w-full'>
                 <div className='flex text-center justify-center '>
                     <a className="items-center text-4xl font-serif text-white p-2 hover:text-black hover:rounded-full hover:bg-neutral-100" href="http://localhost:3000/loveMe" >I LOVE ME BEAUTY SALON</a><svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-100 self-center"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" >
                         <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
                         </svg>
+						<p className=" text-white text-3xl px-4 hover:text-black  font-serif  self-center" href="#" aria-current="page">Productos:</p>	
 
                 </div>
 				
-				<a className=" text-white text-3xl px-4 hover:text-black hover:rounded-full font-serif hover:bg-neutral-100" href="#" aria-current="page">Diseños</a>
-				<a className=" text-white text-3xl px-4 hover:text-black hover:rounded-full font-serif hover:bg-neutral-100" href="#" aria-current="page">Citas</a>
+				<button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" className="text-black text-4xl bg-white font-serif hover:bg-black hover:text-white   rounded-full px-4 py-2 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Uñas<svg className="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+				<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+				</svg>
+				</button>
+
+					
+				<div id="dropdown" className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+					<ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+					<li>
+						<a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+					</li>
+					<li>
+						<a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+					</li>
+					<li>
+						<a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+					</li>
+					<li>
+						<a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a>
+					</li>
+					</ul>
+				</div>
+
+				<button type="button" class="text-black text-4xl bg-white font-serif hover:bg-black hover:text-white   rounded-full px-4 py-2 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" id="menu-button" aria-expanded="true" aria-haspopup="true">
+					Options
+					<svg class="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+						<path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+					</svg>
+				</button>
+
+				<div class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+				<div class="py-1" role="none">
+				
+				<a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="menu-item-0">Account settings</a>
+				<a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="menu-item-1">Support</a>
+				<a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="menu-item-2">License</a>
+				<form method="POST" action="#" role="none">
+					<button type="submit" class="block w-full px-4 py-2 text-left text-sm text-gray-700" role="menuitem" tabindex="-1" id="menu-item-3">Sign out</button>
+				</form>
+				</div>
+			</div>
+
+			
+				
                 <LoginButton></LoginButton>
 
 				<div className='relative'>
