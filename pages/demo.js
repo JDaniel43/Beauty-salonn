@@ -1,6 +1,7 @@
 import  toast, { Toaster } from "react-hot-toast";
  import LoginButton from "@/components/login-btn";
  import Button from "@/components/Button";
+ import StaggeredDropDown from "@/components/DropMenue"
  export default function Demo(){
      const notify = () => toast.success('Hello word');
      const badNotify = () => toast.error('what happened dude??')
@@ -17,7 +18,6 @@ import  toast, { Toaster } from "react-hot-toast";
          <br/>
          <Button onClick={badNotify} > my bad</Button>
          <LoginButton/> 
-        
         </>
 
      )

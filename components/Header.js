@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import LoginButton from './login-btn';
 import Button from './Button';
-
+import Example from '@/components/DropMenue';
 export const Header = ({
 	allProducts,
 	setAllProducts,
@@ -37,52 +37,15 @@ export const Header = ({
                         </svg>
 						<p className=" text-white text-3xl px-4 hover:text-black  font-serif  self-center" href="#" aria-current="page">Productos:</p>	
 
-                </div>
+				<div >
 				
-				<button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" className="text-black text-4xl bg-white font-serif hover:bg-black hover:text-white   rounded-full px-4 py-2 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Uñas<svg className="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-				<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-				</svg>
-				</button>
-
-					
-				<div id="dropdown" className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-					<ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
-					<li>
-						<a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
-					</li>
-					<li>
-						<a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
-					</li>
-					<li>
-						<a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
-					</li>
-					<li>
-						<a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a>
-					</li>
-					</ul>
-				</div>
-
-				<button type="button" class="text-black text-4xl bg-white font-serif hover:bg-black hover:text-white   rounded-full px-4 py-2 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" id="menu-button" aria-expanded="true" aria-haspopup="true">
-					Options
-					<svg class="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-						<path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
-					</svg>
-				</button>
-
-				<div class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
-				<div class="py-1" role="none">
 				
-				<a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="menu-item-0">Account settings</a>
-				<a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="menu-item-1">Support</a>
-				<a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="menu-item-2">License</a>
-				<form method="POST" action="#" role="none">
-					<button type="submit" class="block w-full px-4 py-2 text-left text-sm text-gray-700" role="menuitem" tabindex="-1" id="menu-item-3">Sign out</button>
-				</form>
+				
 				</div>
 			</div>
 
 			
-				
+				<Example></Example>
                 <LoginButton></LoginButton>
 
 				<div className='relative'>
