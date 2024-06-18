@@ -3,8 +3,8 @@ import { AnimatePresence, motion } from "framer-motion";
 
 const Example = () => {
   return (
-    <div className="bg-black text-white text-3xl px-4 py-2 px-4 rounded-full">
-      <FlyoutLink href="#" FlyoutContent={PricingContent}>
+    <div className="bg-black text-white text-3xl px-4 py-2  font-serif rounded-full hover:bg-white hover:text-black">
+      <FlyoutLink href="#" className="hover:text-black text-black font-serif" FlyoutContent={PricingContent}>
         Pricing
       </FlyoutLink>
     </div>
@@ -22,7 +22,7 @@ const FlyoutLink = ({ children, href, FlyoutContent }) => {
       onMouseLeave={() => setOpen(false)}
       className="relative w-fit h-fit"
     >
-      <a href={href} className="relative text-white">
+      <a href={href} className="relative font-serif">
         {children}
         {/* <span
           style={{
