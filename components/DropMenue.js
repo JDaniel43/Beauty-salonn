@@ -4,8 +4,8 @@ import { AnimatePresence, motion } from "framer-motion";
 const Example = () => {
   return (
     <div className="bg-black text-white text-3xl px-4 py-2  font-serif rounded-full hover:bg-white hover:text-black">
-      <FlyoutLink href="#" className="hover:text-black text-black font-serif" FlyoutContent={PricingContent}>
-        Pricing
+      <FlyoutLink href="#" className="hover:text-black text-black font-serif " FlyoutContent={PricingContent}>
+      Productos
       </FlyoutLink>
     </div>
   );
@@ -24,12 +24,12 @@ const FlyoutLink = ({ children, href, FlyoutContent }) => {
     >
       <a href={href} className="relative font-serif">
         {children}
-        {/* <span
+         <span
           style={{
             transform: showFlyout ? "scaleX(1)" : "scaleX(0)",
           }}
           className="absolute -bottom-2 -left-2 -right-2 h-1 origin-left scale-x-0 rounded-full bg-indigo-300 transition-transform duration-300 ease-out"
-        /> */}
+        />
       </a>
       <AnimatePresence>
         {showFlyout && (
