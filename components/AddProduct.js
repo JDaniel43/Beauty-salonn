@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import DropTipoProductos from "./DropTipoProductos";
 import axios from 'axios';
 
+
 const AddProduct = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedCategoryId, setSelectedCategoryId] = useState(''); // Estado para el dropdown
@@ -10,27 +11,40 @@ const AddProduct = () => {
         setSelectedCategoryId(event.target.value);
     };
 
+    
     const handleAddProduct = async () => {
-        const productData = {
-            "nombre": document.querySelector('input[name="name"]').value,
-            "description": document.querySelector('input[name="description"]').value,
-            "precio": parseFloat(document.querySelector('input[name="price"]').value),
-            "stock": parseInt(document.querySelector('input[name="stock"]').value),
-            "categoria_id": selectedCategoryId,
-            "imageUrl": document.querySelector('input[name="imageUrl"]').value || null,
-            "cantidad": 1
-        };
-    
-        try {
-            console.log('Product Data:', productData);
-            const response = await axios.post('http://localhost:3000/api/productos', productData);
-            setProducts(response.data);
-            console.log('Response Data:', response.data);
-        } catch (error) {
-            console.error('Error fetching products:', error);
+        const nombre =document.querySelector('input[name="name"]').value;
+        const description =document.querySelector('input[name="description"]').value;
+        const precio = parseFloat(document.querySelector('input[name="price"]').value);
+        const stock = parseInt(document.querySelector('input[name="stock"]').value);
+        const categoria_id = selectedCategoryId;
+        const imageUrl = document.querySelector('input[name="imageUrl"]').value; 
+        if(nombre == ''|| description == '' || precio == '' || stock == '' || categoria_id == '' || imageUrl == ''){
+           alert('Todos los campos son Obligatorios'); 
         }
-    
-        setIsOpen(false); // Cerrar el modal después de añadir el producto
+
+        const productData = {
+            nombre: nombre,
+            description: description,
+            precio: precio,
+            stock: stock,
+            categoria_id: categoria_id,
+            imageUrl: imageUrl,
+            cantidad: 1
+        };
+
+        if(nombre !== '' && description !== ''  && precio !== '' && stock !== '' && categoria_id !== '' && imageUrl !== ''){
+            try {
+                console.log('Product Data:', productData);
+                const response = await axios.post('http://localhost:3000/api/productos', productData);
+                setProducts(response.data);
+                console.log('Response Data:', response.data);
+            } catch (error) {
+                console.error('Error fetching products:', error);
+            }
+        
+            setIsOpen(false); // Cerrar el modal después de añadir el producto
+        };
     };
     
 
@@ -69,22 +83,25 @@ const AddProduct = () => {
                                 type="text"
                                 name="description"
                                 className="w-64 px-4 border-2 border-gray-300 rounded-lg focus:outline-none"
+                                required
                             />
                         </div>
                         <div>
                             <label className="mr-3 font-semibold font-[Poppins]">Precio:</label>
                             <input
-                                type="number"
+                                type="text"
                                 name="price"
                                 className="w-64 px-4 border-2 border-gray-300 rounded-lg focus:outline-none"
+                                required
                             />
                         </div>
                         <div>
                             <label className="mr-3 font-semibold font-[Poppins]">Stock:</label>
                             <input
-                                type="number"
+                                type="text"
                                 name="stock"
                                 className="w-64 px-4 border-2 border-gray-300 rounded-lg focus:outline-none"
+                                required
                             />
                         </div>
                         <div>
@@ -93,6 +110,7 @@ const AddProduct = () => {
                                 type="text"
                                 name="imageUrl"
                                 className="w-64 px-4 border-2 border-gray-300 rounded-lg focus:outline-none"
+                                required
                             />
                         </div>
                         <div className="">
