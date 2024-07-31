@@ -7,7 +7,7 @@ export default async function handler(req, res) {
     switch (req.method) {
       case 'GET':
         try {
-          const result = await pool.request().query('SELECT * FROM Producto');
+          const result = await pool.request().query('select top 6  * from Producto');
           res.status(200).json(result.recordset);
         } catch (err) {
           res.status(500).send(err.message);
@@ -29,12 +29,12 @@ export default async function handler(req, res) {
       break;
 
       case 'PUT':
-      const { id, nombre: updateNombre, description: updatedescription, precio: updatePrecio, stock: updateStock, categoria_id: updateCategoriaId,  imageUrl: updateImageUrl } = req.body;
+      const { producto_id:id, nombre: updateNombre, description: updatedescription, precio: updatePrecio, stock: updateStock, categoria_id: updateCategoriaId,  imageUrl: updateImageUrl } = req.body;
       try {
         const result = await pool.request().query`
           UPDATE Producto
           SET nombre = ${updateNombre},  description = ${updatedescription}, precio = ${updatePrecio}, stock = ${updateStock}, categoria_id = ${updateCategoriaId}, imageUrl = ${updateImageUrl}
-          WHERE id = ${id}
+          WHERE producto_id = ${id}
         `;
         res.status(200).json({ message: 'Data updated successfully', result });
       } catch (err) {
