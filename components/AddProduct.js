@@ -3,23 +3,50 @@ import DropTipoProductos from "./DropTipoProductos";
 import axios from 'axios';
 
 
+
 const AddProduct = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedCategoryId, setSelectedCategoryId] = useState(''); // Estado para el dropdown
+    const [image, setImage] = useState(null);
+    const [imageUrl, setImageUrl] = useState('');
 
     const handleCategoryChange = (event) => {
         setSelectedCategoryId(event.target.value);
     };
 
-    
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            setImage(reader.result);
+        };
+        reader.readAsDataURL(file);
+    };
+
+    const handleUploadImage = async () => {
+        if (image) {
+            try {
+                const response = await axios.post('/api/updateImg', { image });
+                setImageUrl(response.data.url);
+                return response.data.url;
+            } catch (error) {
+                console.error('Error uploading image:', error);
+                throw error;
+            }
+        }
+        return null;
+    };
+
     const handleAddProduct = async () => {
+
+        
         const nombre =document.querySelector('input[name="name"]').value;
         const description =document.querySelector('input[name="description"]').value;
         const precio = parseFloat(document.querySelector('input[name="price"]').value);
         const stock = parseInt(document.querySelector('input[name="stock"]').value);
         const categoria_id = selectedCategoryId;
-        const imageUrl = document.querySelector('input[name="imageUrl"]').value; 
-        if(nombre == ''|| description == '' || precio == '' || stock == '' || categoria_id == '' || imageUrl == ''){
+        const imageUrl = await handleUploadImage();
+        if(nombre == ''|| description == '' || precio == '' || stock == '' || categoria_id == '' || imageUrl == 'NULL'){
            alert('Todos los campos son Obligatorios'); 
         }
 
@@ -33,7 +60,7 @@ const AddProduct = () => {
             cantidad: 1
         };
 
-        if(nombre !== '' && description !== ''  && precio !== '' && stock !== '' && categoria_id !== '' && imageUrl !== ''){
+        if(nombre !== '' && description !== ''  && precio !== '' && stock !== '' && categoria_id !== '' && imageUrl !== 'NULL'){
             try {
                 console.log('Product Data:', productData);
                 const response = await axios.post('http://localhost:3000/api/productos', productData);
@@ -105,13 +132,13 @@ const AddProduct = () => {
                             />
                         </div>
                         <div>
-                            <label className="mr-3 font-semibold font-[Poppins]">Image URL:</label>
+                        <label className="mr-3 font-semibold font-[Poppins]">Image:</label>
                             <input
-                                type="text"
-                                name="imageUrl"
+                                type="file"
+                                onChange={handleImageChange}
                                 className="w-64 px-4 border-2 border-gray-300 rounded-lg focus:outline-none"
-                                required
                             />
+                            
                         </div>
                         <div className="">
                             <button
