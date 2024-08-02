@@ -31,7 +31,7 @@ const DropTipoProductos = ({ onChange }) => {
                 onChange={handleChange}
                 className="w-64 px-4 border-2 border-gray-300 rounded-lg focus:outline-none"
             >
-                <option value="">Seleccione una categoría</option>
+                 <option value="">Seleccione una categoría</option> 
                 {categories.map(category => (
                     <option key={category.categoria_id} value={category.categoria_id}>
                         {category.nombre}

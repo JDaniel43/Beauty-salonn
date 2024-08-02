@@ -70,7 +70,8 @@ const AddProduct = () => {
                 console.error('Error fetching products:', error);
             }
         
-            setIsOpen(false); // Cerrar el modal después de añadir el producto
+            setIsOpen(false);
+            window.location.reload(); // Cerrar el modal después de añadir el producto
         };
     };
     

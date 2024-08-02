@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import PricingContent from "@/components/PricingContent"; // Asegúrate de importar correctamente
 
 const Example = () => {
   return (
-    <div className="bg-black text-white text-3xl px-4 py-2  font-serif rounded-full hover:bg-white hover:text-black">
-      <FlyoutLink href="#" className="hover:text-black text-black font-serif " FlyoutContent={PricingContent}>
-      Productos
+    <div className="bg-black text-white text-3xl px-4 py-2 font-serif rounded-full hover:bg-white hover:text-black">
+      <FlyoutLink href="#" FlyoutContent={PricingContent}>
+        Productos
       </FlyoutLink>
     </div>
   );
@@ -24,12 +25,7 @@ const FlyoutLink = ({ children, href, FlyoutContent }) => {
     >
       <a href={href} className="relative font-serif">
         {children}
-         <span
-          style={{
-            transform: showFlyout ? "scaleX(1)" : "scaleX(0)",
-          }}
-          className="absolute -bottom-2 -left-2 -right-2 h-1 origin-left scale-x-0 rounded-full bg-indigo-300 transition-transform duration-300 ease-out"
-        />
+        
       </a>
       <AnimatePresence>
         {showFlyout && (
@@ -51,35 +47,5 @@ const FlyoutLink = ({ children, href, FlyoutContent }) => {
   );
 };
 
-const PricingContent = () => {
-  return (
-    <div className="w-64 bg-white p-6 shadow-xl">
-      <div className="mb-3 space-y-3">
-        <h3 className="font-semibold">For Individuals</h3>
-        <a href="#" className="block text-sm hover:underline">
-          Introduction
-        </a>
-        <a href="#" className="block text-sm hover:underline">
-          Pay as you go
-        </a>
-      </div>
-      <div className="mb-6 space-y-3">
-        <h3 className="font-semibold">For Companies</h3>
-        <a href="#" className="block text-sm hover:underline">
-          Startups
-        </a>
-        <a href="#" className="block text-sm hover:underline">
-          SMBs
-        </a>
-        <a href="#" className="block text-sm hover:underline">
-          Enterprise
-        </a>
-      </div>
-      <button className="w-full rounded-lg border-2 border-neutral-950 px-4 py-2 font-semibold transition-colors hover:bg-neutral-950 hover:text-white">
-        Contact sales
-      </button>
-    </div>
-  );
-};
-
 export default Example;
+
