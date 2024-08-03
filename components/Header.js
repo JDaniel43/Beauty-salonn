@@ -55,7 +55,7 @@ export const Header = ({
 				<div className='flex text-center'>
 					<a
 						className="items-center text-4xl  text-black font-serif font-extrabold  p-2 hover:text-black hover:rounded-full hover:bg-neutral-100"
-						href="http://localhost:3000"
+						href="https://beauty-salonn.vercel.app/"
 					>
 						NAILS STORE
 					</a>

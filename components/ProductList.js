@@ -35,7 +35,7 @@ export const ProductList = ({
   const fetchProducts = async () => {
     try {
       // Modifica la URL para incluir el parámetro de categoría
-      const response = await axios.get(`http://localhost:3000/api/productos?category=${categoryId}`);
+      const response = await axios.get(`/api/productos?category=${categoryId}`);
       console.log(response.data);
       setProducts(response.data);
     } catch (error) {
@@ -138,7 +138,7 @@ export const ProductList = ({
     if (nombre !== '' && description !== '' && precio !== '' && stock !== '' && categoria_id !== '') {
       try {
         console.log('Product Data:', productData);
-        const response = await axios.put('http://localhost:3000/api/productos', productData);
+        const response = await axios.put('/api/productos', productData);
         setProducts(response.data);
         console.log('Response Data:', response.data);
       } catch (error) {

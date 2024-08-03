@@ -63,7 +63,7 @@ const AddProduct = () => {
         if(nombre !== '' && description !== ''  && precio !== '' && stock !== '' && categoria_id !== '' && imageUrl !== 'NULL'){
             try {
                 console.log('Product Data:', productData);
-                const response = await axios.post('http://localhost:3000/api/productos', productData);
+                const response = await axios.post('/api/productos', productData);
                 setProducts(response.data);
                 console.log('Response Data:', response.data);
             } catch (error) {
