@@ -12,11 +12,11 @@ export default async function handler(req, res) {
         console.log('Category:', category);
     
         // Consulta base
-        let query = 'SELECT TOP 6 * FROM Producto';
+        let query = 'SELECT TOP 6 * FROM Producto where stock <> 0';
     
         // Agrega la cláusula WHERE solo si `category` tiene un valor válido
         if (category) {
-          query += ' WHERE categoria_id = @category';
+          query += ' and categoria_id = @category';
         }
     
         // Crea la solicitud y añade el parámetro solo si `category` tiene un valor

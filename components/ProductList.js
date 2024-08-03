@@ -4,6 +4,7 @@ import Button from "./Button";
 import axios from "axios";
 import DropTipoProductos from "./DropTipoProductos";
 import { CategoryContext } from '../context/CategoryContext';
+import { useSession } from 'next-auth/react'; // Usa useSession directamente
 
 export const ProductList = ({
   allProducts,
@@ -19,7 +20,8 @@ export const ProductList = ({
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [selectedCategoryId, setSelectedCategoryId] = useState(''); // Estado para la categoría seleccionada
   const { categoryId } = useContext(CategoryContext);
-  
+  const { data: session } = useSession(); // Obtén la sesión directamente desde useSession
+  const isSpecificUser = session?.user?.email === 'jd.rdgzmata@gmail.com';
   const [formData, setFormData] = useState({
     producto_id: '',
     name: '',
@@ -148,9 +150,14 @@ export const ProductList = ({
 
   return (
     <>
-      <div className='grid grid-cols-3 gap-10 mx-4 mb-4 mt-32'>
+    <div className='  '>
+      <img className='object-cover w-screen pt-32 px-32 pb-6' src='https://res.cloudinary.com/dceub7xcn/image/upload/v1722661403/gefckafpeay4bwgdcdh4.jpg'></img>
+      
+    </div>
+      <div className='grid grid-cols-3 gap-10 mx-4 mb-16 px-32'>
+        
         {products.map(product => (
-          <div className='shadow-pink-300 hover:shadow-sm bg-gray-300' key={product.producto_id}>
+          <div className='shadow-pink-300 hover:shadow-sm bg-gray-300 pt-4' key={product.producto_id}>
             <figure className='grid justify-items-center'>
               <img
                 className='rounded-lg shadow-red-300 hover:scale-105 w-60 h-60'
@@ -161,9 +168,12 @@ export const ProductList = ({
             <div className='flex p-5 leading-4 flex-col gap-10'>
               <h2 className='text-4xl font-semibold text-center'>{product.nombre}</h2>
               <p className='price text-5xl text-center'>${product.precio}</p>
-              <Button onClick={() => openModalEdit(product)}>
-                Editar producto
-              </Button>
+
+              {isSpecificUser && (
+                <Button onClick={() => openModalEdit(product)}>
+                  Editar producto
+                </Button>)
+              }
               <Button onClick={() => openModal(product)}>
                 Ver descripcion
               </Button>
@@ -263,6 +273,7 @@ export const ProductList = ({
                 className="w-64 px-4 border-2 border-gray-300 rounded-lg focus:outline-none"
                 required
               />
+              <p className='text-red-500'>si quieres eliminar el producto de la pagina pon 0 en stock</p>
             </div>
             <div>
               <label className="mr-3 font-semibold font-[Poppins]">Image URL:</label>

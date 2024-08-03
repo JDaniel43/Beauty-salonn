@@ -1,37 +1,37 @@
 export default function Footer() {
     return(
-    // <footer className="flex flex-col items-center text-center text-surface w-screen bg-rose-300 text-white">
-        <footer className="flex flex-col w-screen text-white bg-rose-300">
-            <p className="text-center text-3xl pt-4 hover:text-black "><a className=" px-2 hover:bg-neutral-100 hover:rounded-full">Redes sociales</a></p>
-            <div className="flex justify-around content-between items-center w-screen bg-rose-300 pt-4" style={{justifyContent: "space-around"}}>
+    // <footer className="flex flex-col items-center text-center text-surface w-screen bg-rose-300 text-black">
+        <footer className="flex flex-col w-screen text-black bg-rose-200 ">
+            <p className="text-center text-3xl pt-4 hover:text-black "><a className=" font-extrabold px-2 hover:bg-neutral-100 hover:rounded-full">Redes sociales</a></p>
+            <div className="flex justify-around content-between items-center w-screen bg-rose-200 pt-4" style={{justifyContent: "space-around"}}>
             {/* inta*/}    
                 <a
                     href="https://www.instagram.com/iloveme_beautysalon?igsh=NnZld2pwZWM4NXpi"
                     type="button"
-                    className="rounded-full bg-transparent p-3 font-medium uppercase leading-normal text-surface transition duration-150 ease-in-out hover:bg-neutral-100 focus:outline-none focus:ring-0 dark:text-white dark:hover:bg-secondary-900"
+                    className="rounded-full bg-transparent p-3 font-medium uppercase leading-normal text-surface transition duration-150 ease-in-out hover:bg-neutral-100 focus:outline-none focus:ring-0 dark:text-black dark:hover:bg-secondary-900"
                     data-twe-ripple-init>
                     <span className="mx-auto [&>svg]:h-10 [&>svg]:w-10">
-                    <svg className="h-40 w-40 text-gray-100 hover:text-black"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <rect x="4" y="4" width="16" height="16" rx="4" />  <circle cx="12" cy="12" r="3" />  <line x1="16.5" y1="7.5" x2="16.5" y2="7.501" /></svg>
+                    <svg className="h-40 w-40 text-black hover:text-black"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <rect x="4" y="4" width="16" height="16" rx="4" />  <circle cx="12" cy="12" r="3" />  <line x1="16.5" y1="7.5" x2="16.5" y2="7.501" /></svg>
                     </span>
                 </a>
                 {/* face*/}
                 <a
                     href="https://www.facebook.com/Ilovemenailstore?mibextid=ZbWKwL"
                     type="button"
-                    className="rounded-full bg-transparent p-3 font-medium uppercase leading-normal text-surface transition duration-150 ease-in-out hover:bg-neutral-100 focus:outline-none focus:ring-0 dark:text-white dark:hover:bg-secondary-900"
+                    className="rounded-full bg-transparent p-3 font-medium uppercase leading-normal text-surface transition duration-150 ease-in-out hover:bg-neutral-100 focus:outline-none focus:ring-0 dark:text-black dark:hover:bg-secondary-900"
                     data-twe-ripple-init>
                     <span className="mx-auto [&>svg]:h-10 [&>svg]:w-10">
-                    <svg className="h-40 w-40 text-gray-100 hover:text-black"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg>
+                    <svg className="h-40 w-40 text-black hover:text-black"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg>
                     </span>
                 </a>
                 {/* whatts*/}
                 <a
                     href="https://w.app/rARfSF"
                     type="button"
-                    className="rounded-full bg-transparent p-3  font-medium uppercase leading-normal text-surface transition duration-150 ease-in-out hover:bg-neutral-100 focus:outline-none focus:ring-0 dark:text-white dark:hover:bg-secondary-900"
+                    className="rounded-full bg-transparent p-3  font-medium uppercase leading-normal text-surface transition duration-150 ease-in-out hover:bg-neutral-100 focus:outline-none focus:ring-0 dark:text-black dark:hover:bg-secondary-900"
                     data-twe-ripple-init>
                     <span className="mx-auto [&>svg]:h-10 [&>svg]:w-10">
-                    <svg className="h-40 w-40 text-gray-100 hover:text-black"
+                    <svg className="h-40 w-40 text-black hover:text-black"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="currentColor"
                         viewBox="0 0 448 512">
@@ -44,10 +44,10 @@ export default function Footer() {
                 <a
                     href="https://www.tiktok.com/@iloveme_nailstore?_t=8n1Tl2a13eH&_r=1"
                     type="button"
-                    className="rounded-full bg-transparent p-3 font-medium uppercase leading-normal text-surface transition duration-150 ease-in-out hover:bg-neutral-100 focus:outline-none focus:ring-0 dark:text-white dark:hover:bg-secondary-900"
+                    className="rounded-full bg-transparent p-3 font-medium uppercase leading-normal text-surface transition duration-150 ease-in-out hover:bg-neutral-100 focus:outline-none focus:ring-0 dark:text-black dark:hover:bg-secondary-900"
                     data-twe-ripple-init>
                     <span className="mx-auto [&>svg]:h-10 [&>svg]:w-10">
-                    <svg className="h-40 w-40 text-gray-100 hover:text-black"
+                    <svg className="h-40 w-40 text-black hover:text-black"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="currentColor"
                         viewBox="0 0 448 512">
@@ -59,7 +59,7 @@ export default function Footer() {
             </div>
 
         <div className="flex w-full  text-center justify-center mt-4">
-            <p className="px-2 mb-2" >© 2023 Copyright: I LOVE ME BEAUTY SALON</p> <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-100"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" >
+            <p className="px-2 mb-2 text-black" >© 2023 Copyright: I LOVE ME BEAUTY SALON</p> <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-black"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" >
             <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
             </svg>
 
