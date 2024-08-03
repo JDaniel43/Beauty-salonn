@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from 'react';
+// components/PricingContent.js
+import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
-import { useRouter } from 'next/router'; // Asegúrate de tener esta importación
+import { CategoryContext } from '../context/CategoryContext';
 
-const PricingContent = ({ setProducts }) => {
+const PricingContent = () => {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const router = useRouter(); // Inicializa el hook de enrutador
+  const { setCategoryId } = useContext(CategoryContext);
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -23,15 +24,8 @@ const PricingContent = ({ setProducts }) => {
     fetchCategories();
   }, []);
 
-  const handleCategoryClick = async (categoryId) => {
-    try {
-      const response = await axios.get(`/api/productos?category=${categoryId}`);
-    //   setProducts(response.data); // Actualiza el estado de productos
-      
-      console.log(response.data);// O redirige a una página de productos filtrados si tienes una
-    } catch (error) {
-      console.error('Error fetching products:', error);
-    }
+  const handleCategoryClick = (categoryId) => {
+    setCategoryId(categoryId);
   };
 
   if (loading) return <div>Loading...</div>;
@@ -63,5 +57,6 @@ const PricingContent = ({ setProducts }) => {
 };
 
 export default PricingContent;
+
 
 

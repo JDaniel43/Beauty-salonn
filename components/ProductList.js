@@ -1,8 +1,9 @@
 // import { data } from "@/public/data";
-import { useEffect, useState } from 'react';
+import { useEffect, useState,useContext } from 'react';
 import Button from "./Button";
 import axios from "axios";
 import DropTipoProductos from "./DropTipoProductos";
+import { CategoryContext } from '../context/CategoryContext';
 
 export const ProductList = ({
   allProducts,
@@ -17,6 +18,7 @@ export const ProductList = ({
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [selectedCategoryId, setSelectedCategoryId] = useState(''); // Estado para la categoría seleccionada
+  const { categoryId } = useContext(CategoryContext);
   
   const [formData, setFormData] = useState({
     producto_id: '',
@@ -31,7 +33,8 @@ export const ProductList = ({
   const fetchProducts = async () => {
     try {
       // Modifica la URL para incluir el parámetro de categoría
-      const response = await axios.get(`http://localhost:3000/api/productos?category=${selectedCategoryId}`);
+      const response = await axios.get(`http://localhost:3000/api/productos?category=${categoryId}`);
+      console.log(response.data);
       setProducts(response.data);
     } catch (error) {
       console.error('Error fetching products:', error);
@@ -40,7 +43,7 @@ export const ProductList = ({
 
   useEffect(() => {
     fetchProducts();
-  }, [selectedCategoryId]); // Agrega selectedCategoryId como dependencia
+  }, [categoryId]); // Agrega selectedCategoryId como dependencia
 
   useEffect(() => {
     if (selectedProduct) {

@@ -1,4 +1,5 @@
 import { SessionProvider } from "next-auth/react"
+import { CategoryProvider } from "@/context/CategoryContext"; 
 import "@/styles/globals.css";
 
 export default function App({
@@ -6,10 +7,11 @@ export default function App({
   pageProps: { session, ...pageProps },
 }) {
   return (
-   
+    <CategoryProvider>
       <SessionProvider session={session}>
         <Component {...pageProps} />
       </SessionProvider>
+      </CategoryProvider>
     
   )
 }

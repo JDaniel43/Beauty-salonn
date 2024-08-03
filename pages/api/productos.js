@@ -7,18 +7,25 @@ export default async function handler(req, res) {
   switch (req.method) {
     case 'GET':
       try {
-        const category = req.query.category || '';
+        // Obtén el valor de `category` y trata 'null' como un valor no definido
+        const category = req.query.category === 'null' ? null : req.query.category;
+        console.log('Category:', category);
+    
+        // Consulta base
         let query = 'SELECT TOP 6 * FROM Producto';
-        console.log(category)
+    
+        // Agrega la cláusula WHERE solo si `category` tiene un valor válido
         if (category) {
           query += ' WHERE categoria_id = @category';
         }
-
+    
+        // Crea la solicitud y añade el parámetro solo si `category` tiene un valor
         const request = pool.request();
         if (category) {
           request.input('category', sql.Int, parseInt(category));
         }
-
+    
+        // Ejecuta la consulta
         const result = await request.query(query);
         res.status(200).json(result.recordset);
       } catch (err) {
